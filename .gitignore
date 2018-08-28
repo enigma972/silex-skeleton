@@ -3,3 +3,5 @@ storage/
 !storage/sessions/.gitkeep
 !storage/cache/.gitkeep
 !storage/logs/.gitkeep
+.idea/
+*.*~

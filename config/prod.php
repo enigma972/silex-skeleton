@@ -2,9 +2,11 @@
 
 require_once __DIR__.'/security.php';
 
+$app['debug'] = false;
+
 // La traduction
 $app['locale_fallbacks'] = array('en');
-$app['locale_fallbacks'] = __DIR__.'/../storage/cache/translation';
+$app['translator.cache_dir'] = __DIR__.'/../storage/cache/translation';
 
 // La base de données
 $app['db.options'] = array(
