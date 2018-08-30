@@ -4,11 +4,11 @@ require_once __DIR__.'/security.php';
 
 $app['debug'] = false;
 
-// La traduction
+// Translation
 $app['locale_fallbacks'] = array('en');
 $app['translator.cache_dir'] = __DIR__.'/../storage/cache/translation';
 
-// La base de données
+// Doctrine DBAL
 $app['db.options'] = array(
     'driver' => 'pdo_mysql',
     'host' => '127.0.0.1',
@@ -18,7 +18,22 @@ $app['db.options'] = array(
     'charset' => 'utf8'
 );
 
-// Le moteur de templates
+// Doctrine ORM
+$app['orm.em.options'] =  array(
+	'mappings' => array(
+		// Using actual filesystem paths
+		array(
+				'type' => 'annotation',
+				'namespace' => 'app\Entity',
+				'path' => __DIR__.'/../src/app/Entity'
+		)
+	)
+);
+
+$app['orm.proxies_dir'] = __DIR__.'/../storage/cache/doctrine/orm/Proxies';
+$app['orm.auto_generate_proxies'] = $app['debug'];
+
+// Templates Engine
 $app['twig.path'] = array(
 	__DIR__.'/../Ressources/views'
 );
@@ -27,16 +42,16 @@ $app['twig.options'] = array(
 	'cache' => __DIR__.'/../storage/cache/twig'
 );
 
-// Les assets
+// Assets
 $app['assets.version'] = 'v1';
 
-// Les logs
+// Log
 $app['monolog.logfile'] = __DIR__.'/../storage/logs/prod.log';
 
-// Les sessions
+// Sessions
 $app['session.storage.save_path'] = __DIR__.'/../storage/sessions';
 
-// Envoi d'email
+// Mail sending
 $app['swiftmailer.options'] = array(
 	'host' => 'host',
 	'port' => '25',
