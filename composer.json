@@ -1,7 +1,13 @@
 {
-    "name": "fabpot/silex-skeleton",
+    "name": "enigma972/silex-skeleton",
     "description": "A pre-configured skeleton for the Silex microframework",
     "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Joel Lusavuvu"
+        }
+    ],
     "type": "project",
     "require": {
         "php": ">=5.5.9",

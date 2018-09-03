@@ -5,3 +5,4 @@ storage/
 !storage/logs/.gitkeep
 .idea/
 *.*~
+!tests/.gitkeep

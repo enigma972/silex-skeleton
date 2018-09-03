@@ -1,4 +1,5 @@
 <?php
+const APP_BASE_DIR = __DIR__.'/../';
 
 require_once __DIR__.'/security.php';
 
@@ -6,15 +7,15 @@ $app['debug'] = false;
 
 // Translation
 $app['locale_fallbacks'] = array('en');
-$app['translator.cache_dir'] = __DIR__.'/../storage/cache/translation';
+$app['translator.cache_dir'] = APP_BASE_DIR.'storage/cache/translation';
 
 // Doctrine DBAL
 $app['db.options'] = array(
     'driver' => 'pdo_mysql',
     'host' => '127.0.0.1',
-    'dbname' => 'qwi',
+    'dbname' => 'silex',
     'user' => 'root',
-    'password' => '',
+    'password' => 'root',
     'charset' => 'utf8'
 );
 
@@ -25,31 +26,31 @@ $app['orm.em.options'] =  array(
 		array(
 				'type' => 'annotation',
 				'namespace' => 'app\Entity',
-				'path' => __DIR__.'/../src/app/Entity'
+				'path' => APP_BASE_DIR.'src/app/Entity'
 		)
 	)
 );
 
-$app['orm.proxies_dir'] = __DIR__.'/../storage/cache/doctrine/orm/Proxies';
+$app['orm.proxies_dir'] = APP_BASE_DIR.'storage/cache/doctrine/orm/Proxies';
 $app['orm.auto_generate_proxies'] = $app['debug'];
 
 // Templates Engine
 $app['twig.path'] = array(
-	__DIR__.'/../Ressources/views'
+	APP_BASE_DIR.'Ressources/views'
 );
 
 $app['twig.options'] = array(
-	'cache' => __DIR__.'/../storage/cache/twig'
+	'cache' => APP_BASE_DIR.'storage/cache/twig'
 );
 
 // Assets
 $app['assets.version'] = 'v1';
 
 // Log
-$app['monolog.logfile'] = __DIR__.'/../storage/logs/prod.log';
+$app['monolog.logfile'] = APP_BASE_DIR.'storage/logs/prod.log';
 
 // Sessions
-$app['session.storage.save_path'] = __DIR__.'/../storage/sessions';
+$app['session.storage.save_path'] = APP_BASE_DIR.'storage/sessions';
 
 // Mail sending
 $app['swiftmailer.options'] = array(
