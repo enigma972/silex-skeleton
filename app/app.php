@@ -21,7 +21,6 @@ $app->register(new Silex\Provider\DoctrineServiceProvider());
 $app->register(new Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider());
 $app->register(new Silex\Provider\SwiftMailerServiceProvider());
 $app->register(new Silex\Provider\MonologServiceProvider());
-$app->register(new Silex\Provider\WebProfilerServiceProvider());
 
 
 
